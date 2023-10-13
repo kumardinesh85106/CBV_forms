@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>List of Colleges</h1>
+        {% for college in colleges %}
+            <a href="{{college.pk}}"><h1>{{college.Cname}}</h1></a>
+        {% endfor %}
+    </center>
+    
+</body>
+</html>

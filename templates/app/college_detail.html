@@ -1,0 +1,35 @@
+{% extends 'app/dummy.html' %}
+
+
+{% block title  %}
+    <title>Detail page</title>
+{% endblock %}
+
+
+{% block body_block %}
+    <h1>Detail Information of {{collegeobj}}</h1>
+
+    <table border="3px">
+    <tr>
+        <th>CollegeName</th>
+        <th>CollegePrincipal</th>
+        <th>CollegeLocation</th>
+    </tr>
+
+    <tr>
+        <td>{{collegeobj.Cname}}</td>
+        <td>{{collegeobj.Cprincipal}}</td>
+        <td>{{collegeobj.Clocation}}</td>
+    </tr>
+
+    </table>
+
+    <h1>Teachers of {{collegeobj}} are</h1>
+
+        {% for st in collegeobj.teachers.all %}
+            <h1>name of the teacher is {{st.Tname}}</h1>
+            <h1>age of teacher is {{st.Tage}}</h1>
+        {% endfor %}
+<h1><a href="{% url 'update' pk=collegeobj.pk %}"class="btn btn-danger">Update</a></h1>
+<h1><a href="{% url 'delete' pk=collegeobj.pk %}"class="btn btn-danger">Delete</a></h1>
+{% endblock %}
